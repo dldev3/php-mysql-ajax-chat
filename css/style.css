@@ -1,0 +1,79 @@
+.w-400 {
+	width: 400px;
+}
+
+.fs-xs {
+	font-size: 2rem;
+}
+
+.fs-big {
+	font-size: 5rem !important;
+}
+
+.online {
+	width: 10px;
+	height: 10px;
+	background: green;
+	border-radius: 50%;
+}
+
+a {
+	text-decoration: none !important;
+text-decoration-style: none !important;
+}
+
+.fs-sm {
+	font-size: 1.4rem;
+}
+
+small {
+	color: #bbb;
+	font-size: 0.7rem;
+	align-items: right;
+
+}
+
+.chat-box{
+	overflow-y: auto;
+	max-height: 50vh !important;
+}
+
+.rtext {
+	width: 65%;
+	background: #f8f9fa;
+	color: #444;
+}
+
+.ltext{
+	width: 65%;
+	background: #3289c8;
+	color: #fff;
+}
+
+
+/* width */
+*::-webkit-scrollbar {
+	width: 3px;
+}
+
+/* Track */
+*::-webkit-scroll-track {
+	background: #f1f1f1;
+}
+
+/* handle */
+*::-webkit-scrollbar-thumb{
+	background: #aaa;
+}
+
+/* handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+	background: #3289c8;
+}
+
+
+textarea {
+	resize: none;
+}
+
+
