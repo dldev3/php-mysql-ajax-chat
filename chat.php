@@ -58,6 +58,7 @@ if (isset($_SESSION['username'])) {
                         <small class="d-block p-1">Online</small>
                     <?php } else { ?>
                         <small class="d-block p-1">
+                            Last seen:
                             <?= $chatWith['last_seen'];  ?>
                         </small>
                     <?php } ?>
@@ -84,14 +85,7 @@ if (isset($_SESSION['username'])) {
                             </p>
                     <?php }
                     }
-
-                    ?>
-
-
-
-
-
-                <?php  } else { ?>
+                } else { ?>
 
                     <div class="alert alert-info text-center">
                         <i class="fa fa-comments d-block fs-big "></i>
@@ -140,6 +134,31 @@ if (isset($_SESSION['username'])) {
                             scrollDown();
                         });
                 });
+
+                //auto update lase seen for logged in user
+                let lastSeenUpdate = function() {
+                    $.get("app/ajax/update_last_seen.php")
+                };
+
+                lastSeenUpdate();
+
+                // auto update last seen every 10 seconds
+                setInterval(lastSeenUpdate, 10000);
+
+
+                //auto refresh / reload
+                let fetchData = function() {
+                    $.post("app/ajax/getMessage.php", {
+                            id_2: <?= $chatWith['user_id'] ?>
+                        },
+                        function(data, status) {
+                            $("#chatBox").append(data);
+                            if (data != "") scrollDown();
+                        });
+                }
+                fetchData();
+                // auto update last seen every .5 seconds
+                setInterval(fetchData, 500);
             });
         </script>
     </body>
